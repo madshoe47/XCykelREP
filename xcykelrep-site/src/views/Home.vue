@@ -38,13 +38,13 @@
         <img src="../assets/down.svg" alt="" />
       </div>
     </div>
-    <div class="reviews"></div>
+    <div id="reviews"></div>
     <div class="facebook"></div>
   </div>
 </template>
 
 <script>
-/* import Vue from "vue"; var d = new Date(); var n = d.getDay();
+import Vue from "vue"; /* var d = new Date(); var n = d.getDay();
 console.log(n); window.onload = function() { new Vue({ el: "#openingHour", data:
 { dayOfWeek: n } }); };*/
 </script>
@@ -71,7 +71,7 @@ p {
 }
 .background {
   position: relative;
-  left: 0;
+  left: -8px;
   width: 100vw;
 }
 
@@ -129,7 +129,7 @@ video {
 }
 
 .home {
-  margin-top: 80px;
+  margin-top: 75px;
   margin-bottom: 200px;
 }
 
