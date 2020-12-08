@@ -43,6 +43,7 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #ffffff;
+  z-index: 99;
 }
 body {
   background-color: #3a393e;
@@ -67,15 +68,18 @@ h1 {
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
+  z-index: 92;
 }
 
 .header img {
   height: 80%;
+  z-index: 92;
 }
 
 .underline {
   color: #fff;
   text-decoration: underline;
+  z-index: 92;
 }
 
 #nav {
@@ -87,6 +91,7 @@ h1 {
   flex-direction: row;
   justify-content: space-around;
   background-color: #fff;
+  z-index: 92;
 }
 
 #nav a {
@@ -98,18 +103,22 @@ h1 {
   color: #2c3e50;
   padding: 10px 15px 10px 15px;
   text-decoration: none;
+  z-index: 92;
 }
 
 #nav a img {
   height: 25px;
   width: 25px;
+  z-index: 92;
 }
 
 .navElement {
   width: 25%;
+  z-index: 92;
 }
 
 .navElement a.router-link-exact-active {
   background-color: #f2cb03;
+  z-index: 92;
 }
 </style>
