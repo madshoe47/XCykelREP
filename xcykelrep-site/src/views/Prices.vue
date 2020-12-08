@@ -1,8 +1,8 @@
 <template>
   <div class="contact">
-    <h2>24 timers reparationsgaranti</h2>
-    <p>Få fikset din cykel indenfor 24 timer!</p>
-    <p>
+    <h2 class="headerPrices">24 timers reparationsgaranti</h2>
+    <p class="textPrices">Få fikset din cykel indenfor 24 timer!</p>
+    <p class="textPrices">
       Hos X Cykel REP er vi effektive og du kan derfor i de fleste tilfælde
       allerede hente din cykel dagen efter. Der skal dog tages for- behold for
       weekender og bestilling af dele, hvor der opstår leveringstid.
@@ -120,11 +120,11 @@ export default {};
   margin-top: 100px;
   margin-bottom: 100px;
 }
-h2 {
+.headerPrices {
   color: #f2cb03;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
-p,
+.textPrices,
 td {
   color: white;
   font-family: helvetica;

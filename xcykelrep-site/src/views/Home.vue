@@ -12,8 +12,7 @@
         <div class="content2">
           <h2 class="headerFrontpage">Åbningstid i dag</h2>
           <div id="openingHour">
-            <p v-if="dayOfWeek == 0 || 6">Lukket i dag</p>
-            <p v-else>10 - 18</p>
+            <p>{{dayOfWeek()}}</p>
           </div>
         </div>
         <div class="bookTime">
@@ -38,16 +37,39 @@
         <img src="../assets/down.svg" alt="" />
       </div>
     </div>
-    <div id="reviews"></div>
-    <div class="facebook"></div>
+    <div class="reviews"></div>
+    <div class="facebook">
+      <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FXCYKELREP&tabs=timeline&width=330&height=550&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=2672707899663290" width="330" height="550" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+    </div>
+    <div class="footerContainer">
+  <ThisFoot/>
+    </div>
   </div>
 </template>
 
 <script>
-import Vue from "vue"; /* var d = new Date(); var n = d.getDay();
-console.log(n); window.onload = function() { new Vue({ el: "#openingHour", data:
-{ dayOfWeek: n } }); };*/
+/* import Footer from "@/components/footer.vue"; export default { name:
+"Footer", components: { Footer: Footer } };*/ 
+import ThisFoot from '../components/footer'
+export default {
+  components: {
+    ThisFoot,
+  }, 
+  methods: {
+    dayOfWeek() {
+      var d = new Date(); 
+      var day = d.getDay();
+      if (day === 6) {
+        return 'Lukket i dag'
+      } else if (day === 0) {
+        return 'Lukket i dag'
+      } else{
+        return '10 - 18'
+      }}
+  },
+};
 </script>
+
 
 
 
@@ -130,7 +152,7 @@ video {
 
 .home {
   margin-top: 75px;
-  margin-bottom: 200px;
+  margin-bottom: 80px;
 }
 
 .brushStroke {
@@ -146,4 +168,24 @@ video {
 .overBrushStroke {
   position: absolute;
 }
+
+.reviews {
+  margin-top: 50px;
+  height: 300px;
+  width: 100vw;
+  position: relative;
+  left: -8px;
+  background-color: #f2cb03;
+}
+
+.footerContainer {
+  width: 100vw;
+  margin-top: 50px;
+}
+
+.facebook {
+  margin-top: 50px;
+}
+
+
 </style>
