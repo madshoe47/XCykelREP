@@ -1,6 +1,7 @@
 <template>
   <div class="contact">
     <div>
+     
       <h1>Skriv til os</h1>
       <form onsubmit="return false" id="kontaktForm" class="kontaktForm">
         <label for="">Navn:</label>
@@ -157,11 +158,18 @@
         ></iframe>
       </div>
     </div>
+    <div class="footerContainer">
+  <ThisFoot/>
+    </div>
   </div>
 </template>
 
 <script>
-import { postRef } from "../firebase-db";
+import ThisFoot from '../components/footer'
+
+
+
+import { postRef} from "../firebase-db";
 export default {
   name: "Contact",
   data() {
@@ -205,6 +213,9 @@ export default {
       postRef.add(this.kontakt);
     },
   },
+   components: {
+    ThisFoot,
+  }, 
 };
 </script>
 
@@ -363,4 +374,16 @@ input {
 * {
   text-align: left;
 }
+
+.footerContainer {
+      position: relative;
+    left: -15px;
+  width: 100vw;
+  margin-top: 50px;
+  display: flex;
+  flex-direction: row;
+  color: black;
+  text-align: start;
+}
+
 </style>

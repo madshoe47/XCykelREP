@@ -1,5 +1,6 @@
 <template>
   <div class="contact">
+    <div class="contentContainer">
     <h2 class="headerPrices">24 timers reparationsgaranti</h2>
     <p class="textPrices">Få fikset din cykel indenfor 24 timer!</p>
     <p class="textPrices">
@@ -8,7 +9,7 @@
       weekender og bestilling af dele, hvor der opstår leveringstid.
     </p>
 
-    <h2>Priser*</h2>
+    <h2 class="headerPrices">Priser*</h2>
     <table>
       <tr>
         <td>Lapning af cykel</td>
@@ -105,25 +106,45 @@
     </table>
 
     <p class="italic">*Priserne er angivet fra</p>
+    </div>
+<div class="footerContainer">
+  <ThisFoot/>
+    </div>
+
   </div>
 </template>
 
 <script>
-export default {};
+import ThisFoot from '../components/footer'
+export default {
+  components: {
+    ThisFoot,
+  }, 
+};
 </script>
 
 <style>
 .contact {
   text-align: start;
-  width: 90%;
-  margin: auto;
+  width: 100%;
   margin-top: 100px;
   margin-bottom: 100px;
 }
+
+.contentContainer {
+  width: 90%;
+  margin: auto;
+}
+
 .headerPrices {
   color: #f2cb03;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+  margin-bottom: 10px;
 }
+.textPrices {
+  margin-bottom: 20px;
+}
+
 .textPrices,
 td {
   color: white;
@@ -142,5 +163,16 @@ table td {
 
 .italic {
   font-style: italic;
+}
+
+.footerContainer {
+ position: relative;
+left: -8px;
+  width: 100vw;
+  margin-top: 50px;
+  display: flex;
+  flex-direction: row;
+  color: black;
+  text-align: start;
 }
 </style>

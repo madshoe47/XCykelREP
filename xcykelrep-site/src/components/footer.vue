@@ -1,6 +1,7 @@
 <template>
   <footer>
     <img class="footer-bike" src="../assets/cykel2.svg" alt="cykel" />
+    <div class="allText">
     <h3>X Cykel REP.</h3>
     <p>Skovgaardsgade 5</p>
     <p>8000 Aarhus C</p>
@@ -11,7 +12,7 @@
 
     <p>
       Tlf:
-      <a class="underline" href="tel: 26 43 07 92">26 43 07 92</a>
+      <a class="underline2" href="tel: 26 43 07 92">26 43 07 92</a>
     </p>
     <br />
     <p>CVR-nummer</p>
@@ -38,6 +39,7 @@
         alt="mobilepay logo"
       />
     </p>
+    </div>
   </footer>
 </template>
 
@@ -53,6 +55,7 @@ footer {
   z-index: 1;
   overflow: hidden;
   width: 100vw;
+  padding: 5%;
 }
 
 .footer-bike {
@@ -63,11 +66,18 @@ footer {
   z-index: -1;
 }
 
-.underline {
+.underline2 {
   text-decoration: underline;
+  color: black;
+
 }
 
 .footer-icons {
   width: 50px;
+}
+
+.allText {
+  width: 90%;
+  margin: auto;
 }
 </style>

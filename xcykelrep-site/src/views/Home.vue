@@ -48,8 +48,6 @@
 </template>
 
 <script>
-/* import Footer from "@/components/footer.vue"; export default { name:
-"Footer", components: { Footer: Footer } };*/ 
 import ThisFoot from '../components/footer'
 export default {
   components: {
@@ -88,7 +86,7 @@ p {
   left: 0;
   height: 100%;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.5);
   z-index: 1;
 }
 .background {
@@ -181,11 +179,19 @@ video {
 .footerContainer {
   width: 100vw;
   margin-top: 50px;
+  display: flex;
+  flex-direction: row;
+  color: black;
+  text-align: start;
 }
 
 .facebook {
-  margin-top: 50px;
+    width: 90%;
+    margin: auto;
+    margin-top: 50px;
 }
+
+
 
 
 </style>
