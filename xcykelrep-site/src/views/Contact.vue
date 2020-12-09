@@ -1,7 +1,6 @@
 <template>
   <div class="contact">
     <div>
-     
       <h1>Skriv til os</h1>
       <form onsubmit="return false" id="kontaktForm" class="kontaktForm">
         <label for="">Navn:</label>
@@ -119,6 +118,28 @@
 
         <button v-on:click="sendForm" class="send">Send</button>
       </form>
+      <div>
+        <transition name="modal">
+          <div v-if="isOpen">
+            <div class="overlay" @click.self="isOpen = false">
+              <div class="modal">
+                <h1>Tak for din reservation!</h1>
+                <p>
+                  Du har bestilt tid
+                  <strong
+                    >D. {{ this.kontakt.dato }} kl.
+                    {{ this.kontakt.tid }}</strong
+                  >
+                </p>
+                <p>
+                  Hvis du har ydeligere spørgsmål, kan jeg kontaktes på:
+                  <br /><a href="tel:26430792">26430792</a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </transition>
+      </div>
     </div>
 
     <h1>Åbningstider</h1>
@@ -158,65 +179,26 @@
         ></iframe>
       </div>
     </div>
-    <div class="footerContainer">
-  <ThisFoot/>
-    </div>
+    
   </div>
 </template>
 
 <script>
-import ThisFoot from '../components/footer'
-
-
-
-import { postRef} from "../firebase-db";
-export default {
-  name: "Contact",
-  data() {
-    return {
-      kontakt: {
-        navn: null,
-        internDato: "",
-        telefonnummer: null,
-        dato: null,
-        tid: null,
-        del: "",
-        problem: null,
-      },
-    };
-  },
-  methods: {
-    skiftDel(del, billede) {
-      console.log(del);
-      this.kontakt.del += del + " ";
-      console.log(this.kontakt);
-      let delBillede = "#" + billede;
-      console.log(delBillede);
-      let billedet = document.querySelector(delBillede);
-      console.log(billedet);
-      billedet.classList.toggle("gem");
-    },
-    sendForm() {
-      let isValid = document.querySelector("#kontaktForm").checkValidity();
-      if (isValid) {
-        this.problem = document.querySelector("#problemet");
-        console.log(this.kontakt);
-        let dato = this.kontakt.dato;
-        this.kontakt.internDato = dato;
-        let tidspunkt = dato.substr(11, 5);
-        console.log(tidspunkt);
-        let nyDato = dato.substr(0, 10);
-        this.kontakt.dato = nyDato;
-        this.kontakt.tid = tidspunkt;
-        console.log(this.kontakt);
-      }
-      postRef.add(this.kontakt);
-    },
-  },
-   components: {
-    ThisFoot,
-  }, 
-};
+import { postRef } from
+"../firebase-db"; export default { name: "Contact", data() { return { kontakt: {
+navn: null, internDato: "", telefonnummer: null, dato: null, tid: null, del: "",
+problem: null }, isOpen: false }; }, methods: { skiftDel(del, billede) {
+console.log(del); this.kontakt.del += del + " "; console.log(this.kontakt); let
+delBillede = "#" + billede; console.log(delBillede); let billedet =
+document.querySelector(delBillede); console.log(billedet);
+billedet.classList.toggle("gem"); }, sendForm() { this.isOpen = true; let
+isValid = document.querySelector("#kontaktForm").checkValidity(); if (isValid) {
+this.problem = document.querySelector("#problemet"); console.log(this.kontakt);
+let dato = this.kontakt.dato; this.kontakt.internDato = dato; let tidspunkt =
+dato.substr(11, 5); console.log(tidspunkt); let nyDato = dato.substr(8, 2) + "-"
++ dato.substr(5, 2) + "-" + dato.substr(0, 4); this.kontakt.dato = nyDato;
+this.kontakt.tid = tidspunkt; console.log(this.kontakt); }
+postRef.add(this.kontakt); } } };
 </script>
 
 <style scoped>
@@ -375,15 +357,54 @@ input {
   text-align: left;
 }
 
-.footerContainer {
-      position: relative;
-    left: -15px;
-  width: 100vw;
-  margin-top: 50px;
-  display: flex;
-  flex-direction: row;
+.modal {
+  width: 500px;
+  margin: 0px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 2px;
+  box-shadow: 0 2px 8px 3px;
+  transition: all 0.2s ease-in;
+  font-family: Helvetica, Arial, sans-serif;
   color: black;
-  text-align: start;
 }
 
+.fadeIn-enter {
+  opacity: 0;
+}
+
+.fadeIn-leave-active {
+  opacity: 0;
+  transition: all 0.2s step-end;
+}
+
+.fadeIn-enter .modal,
+.fadeIn-leave-active.modal {
+  transform: scale(1.1);
+}
+button {
+  padding: 7px;
+  margin-top: 10px;
+  background-color: green;
+  color: white;
+  font-size: 1.1rem;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background: #00000094;
+  z-index: 999;
+  transition: opacity 0.2s ease;
+}
+
+a {
+  color: black;
+}
 </style>

@@ -107,20 +107,12 @@
 
     <p class="italic">*Priserne er angivet fra</p>
     </div>
-<div class="footerContainer">
-  <ThisFoot/>
-    </div>
 
   </div>
 </template>
 
 <script>
-import ThisFoot from '../components/footer'
-export default {
-  components: {
-    ThisFoot,
-  }, 
-};
+
 </script>
 
 <style>
@@ -165,14 +157,4 @@ table td {
   font-style: italic;
 }
 
-.footerContainer {
- position: relative;
-left: -8px;
-  width: 100vw;
-  margin-top: 50px;
-  display: flex;
-  flex-direction: row;
-  color: black;
-  text-align: start;
-}
 </style>

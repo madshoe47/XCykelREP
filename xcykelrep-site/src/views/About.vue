@@ -93,20 +93,12 @@
     </div>
 
     </section>
-    <div class="footerContainer">
-  <ThisFoot/>
-    </div>
 
   </div>
 </template>
 
 <script>
-import ThisFoot from '../components/footer'
-export default {
-  components: {
-    ThisFoot,
-  }, 
-};
+
 </script>
 
 
@@ -127,12 +119,12 @@ export default {
 }
 
 .rasmus-img {
-    width: 180px;
-    height: 180px
+    width: 240px;
+    height: 240px
 }
 
 .tekst-img {
-    width: 20px;
+    width: 30px;
 }
 
 .tekst-section {
@@ -205,7 +197,7 @@ export default {
     position: relative;
     top: 30%;
     left: 0;
-    max-width: 80%;
+    max-width: 85%;
     max-height: 80%;
     margin-top: 2%;
     opacity: 0;
@@ -234,13 +226,13 @@ export default {
 
 .btn-prev {
     position: absolute;
-    left: 8%;
+    left: 10%;
     top: 63%;
 }
 
 .btn-next {
     position: absolute;
-    right: 15%;
+    right: 10%;
     top: 63%;
 }
 
@@ -252,17 +244,6 @@ export default {
     padding: 10px 15px;
 }
 
-
-.footerContainer {
-  Position: relative;
-  left: -8px;
-  width: 100vw;
-  margin-top: 50px;
-  display: flex;
-  flex-direction: row;
-  color: black;
-  text-align: start;
-}
 
 
 </style>

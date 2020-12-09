@@ -33,8 +33,20 @@
       </div>
     </div>
     <router-view />
+     <div class="footerContainer">
+    <ThisFoot></ThisFoot>
+    </div>
   </div>
 </template>
+
+<script>
+import ThisFoot from './components/footer'
+export default {
+  components: {
+    ThisFoot,
+  }, 
+};
+</script>
 
 <style>
 #app {
@@ -46,7 +58,9 @@
   z-index: 99;
 }
 body {
-  background-color: #3a393e;
+    background-color: #3a393e;
+    width: 100%;
+    margin: 0;
 }
 
 h1 {
@@ -120,5 +134,16 @@ h1 {
 .navElement a.router-link-exact-active {
   background-color: #f2cb03;
   z-index: 92;
+}
+
+.footerContainer {
+  background-color: #f2cb03;
+  width: 100%;
+  margin-top: 50px;
+  display: flex;
+  flex-direction: row;
+  color: black;
+  text-align: start;
+  margin-bottom: 100px;
 }
 </style>

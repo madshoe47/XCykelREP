@@ -39,20 +39,14 @@
     </div>
     <div class="reviews"></div>
     <div class="facebook">
-      <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FXCYKELREP&tabs=timeline&width=330&height=550&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=2672707899663290" width="330" height="550" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
-    </div>
-    <div class="footerContainer">
-  <ThisFoot/>
-    </div>
+      <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FXCYKELREP&tabs=timeline&width=280&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=2672707899663290" width="280" height="500" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+     </div>
   </div>
 </template>
 
 <script>
-import ThisFoot from '../components/footer'
 export default {
-  components: {
-    ThisFoot,
-  }, 
+  
   methods: {
     dayOfWeek() {
       var d = new Date(); 
@@ -91,8 +85,7 @@ p {
 }
 .background {
   position: relative;
-  left: -8px;
-  width: 100vw;
+  width: 100%;
 }
 
 video {
@@ -170,19 +163,9 @@ video {
 .reviews {
   margin-top: 50px;
   height: 300px;
-  width: 100vw;
+  width: 100%;
   position: relative;
-  left: -8px;
   background-color: #f2cb03;
-}
-
-.footerContainer {
-  width: 100vw;
-  margin-top: 50px;
-  display: flex;
-  flex-direction: row;
-  color: black;
-  text-align: start;
 }
 
 .facebook {

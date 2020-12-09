@@ -51,10 +51,9 @@ export default { name: "ThisFoot", data() { return {}; } };
 footer {
   background-color: #f2cb03;
   position: relative;
-  left: -8px;
   z-index: 1;
   overflow: hidden;
-  width: 100vw;
+  width: 100%;
   padding: 5%;
 }
 
@@ -74,6 +73,7 @@ footer {
 
 .footer-icons {
   width: 50px;
+  margin-top: 5px;
 }
 
 .allText {
