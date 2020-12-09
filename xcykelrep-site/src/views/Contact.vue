@@ -1,28 +1,132 @@
 <template>
   <div class="contact">
+    <img class="baggrundsX" src="../assets/x.svg" alt="" />
     <div>
       <h1>Skriv til os</h1>
       <form onsubmit="return false" id="kontaktForm" class="kontaktForm">
-        <label for="">Navn:</label>
-        <input required v-model="kontakt.navn" name="name" type="text" />
-        <label for="">Telefonnummer:</label>
-        <input
-          v-model="kontakt.telefonnummer"
-          name="telephone"
-          type="numbers"
-          required
-        />
-        <label for="">Ønsket indleveringstid:</label>
-        <input
-          id="date"
-          v-model="kontakt.dato"
-          name="dateTime"
-          type="datetime-local"
-          min="2021-01-01T10:00"
-          max="2021-12-30T00:00"
-          required
-        />
-        <div>
+        <div class="input">
+          <label for="">Navn:</label>
+          <input required v-model="kontakt.navn" name="name" type="text" />
+          <label for="">Telefonnummer:</label>
+          <input
+            v-model="kontakt.telefonnummer"
+            name="telephone"
+            type="numbers"
+            required
+          />
+          <label for="">Ønsket indleveringstid:</label>
+          <input
+            id="date"
+            v-model="kontakt.dato"
+            name="dateTime"
+            type="datetime-local"
+            min="2021-01-01T10:00"
+            max="2021-12-30T00:00"
+            required
+          />
+          <div class="cykelMobil">
+            <label for="">Tryk på området med problemet:</label>
+            <div class="cykelKnapper">
+              <img
+                id="gulCykel"
+                class="gulCykel"
+                src="../assets/gul_cykel.svg"
+                alt=""
+              />
+              <img
+                id="styrBillede"
+                class="styrBillede gem"
+                src="../assets/styr.svg"
+                alt=""
+              />
+              <img
+                id="forHjulBillede"
+                class="forHjulBillede gem"
+                src="../assets/hjul.svg"
+                alt=""
+              />
+              <img
+                id="bagHjulBillede"
+                class="bagHjulBillede gem"
+                src="../assets/hjul.svg"
+                alt=""
+              />
+              <img
+                id="forBillede"
+                class="forBillede gem"
+                src="../assets/for.svg"
+                alt=""
+              />
+              <img
+                id="bagBillede"
+                class="bagBillede gem"
+                src="../assets/bag.svg"
+                alt=""
+              />
+              <img
+                id="krankBillede"
+                class="krankBillede gem"
+                src="../assets/krank.svg"
+                alt=""
+              />
+              <button
+                v-on:click="skiftDel('Baghjul', 'bagBillede')"
+                class="noBackBorder bagHjul"
+              >
+                <img src="../assets/plus.svg" alt="" />
+              </button>
+              <button
+                v-on:click="skiftDel('Forhjul', 'forBillede')"
+                class="noBackBorder forHjul"
+              >
+                <img src="../assets/plus.svg" alt="" />
+              </button>
+              <button
+                v-on:click="skiftDel('Krank', 'krankBillede')"
+                class="noBackBorder krank"
+              >
+                <img src="../assets/plus.svg" alt="" />
+              </button>
+              <button
+                v-on:click="skiftDel('Fordæk', 'forHjulBillede')"
+                class="noBackBorder forDak"
+              >
+                <img src="../assets/plus.svg" alt="" />
+              </button>
+              <button
+                v-on:click="skiftDel('Bagdæk', 'bagHjulBillede')"
+                class="noBackBorder bagDak"
+              >
+                <img src="../assets/plus.svg" alt="" />
+              </button>
+              <button
+                v-on:click="skiftDel('Styr', 'styrBillede')"
+                class="noBackBorder styr"
+              >
+                <img src="../assets/plus.svg" alt="" />
+              </button>
+            </div>
+          </div>
+
+          <label for="">Forklar problemet:</label>
+          <textarea
+            v-model="kontakt.problem"
+            placeholder=""
+            id="problemet"
+            class="problemet"
+            type="text"
+            required
+            rows="5"
+            cols="60"
+          >
+            Enter details here...
+         </textarea
+          >
+
+          <button v-on:click="sendForm" class="send">Send</button>
+        </div>
+
+        <div class="cykelLaptop">
           <label for="">Tryk på området med problemet:</label>
           <div class="cykelKnapper">
             <img
@@ -105,18 +209,6 @@
             </button>
           </div>
         </div>
-
-        <label for="">Forklar porblemet:</label>
-        <input
-          v-model="kontakt.problem"
-          placeholder=""
-          id="problemet"
-          class="problemet"
-          type="text"
-          required
-        />
-
-        <button v-on:click="sendForm" class="send">Send</button>
       </form>
       <div>
         <transition name="modal">
@@ -141,64 +233,80 @@
         </transition>
       </div>
     </div>
+    <div class="aabning">
+      <div>
+        <h1>Åbningstider</h1>
+        <div class="kontaktTekst">
+          <h3>Værksted og Kontor</h3>
+          <p>Man-fre: 10-18</p>
+          <p>Lør-søn: Lukket</p>
+        </div>
 
-    <h1>Åbningstider</h1>
-    <div class="kontaktTekst">
-      <h3>Værksted og Kontor</h3>
-      <p>Man-fre: 10-18</p>
-      <p>Lør-søn: Lukket</p>
-    </div>
-
-    <div class="kontaktOgIkon">
-      <img src="../assets/sms.svg" alt="" />
-      <div class="kontaktTekst">
-        <h3>SMS</h3>
-        <p>Alle dage hele døgnet</p>
+        <div class="kontaktOgIkon">
+          <img src="../assets/sms.svg" alt="" />
+          <div class="kontaktTekst">
+            <h3>SMS</h3>
+            <p>Alle dage hele døgnet</p>
+          </div>
+        </div>
+        <div class="kontaktOgIkon">
+          <img src="../assets/kontakt_hvid.svg" alt="" />
+          <div class="kontaktTekst">
+            <h3>Ring</h3>
+            <p>Hverdage 10-18</p>
+          </div>
+        </div>
+      </div>
+      <div>
+        <h1>Find os</h1>
+        <div class="mapouter cykelMobil">
+          <div class="gmap_canvas">
+            <iframe
+              width="300"
+              height="300"
+              id="gmap_canvas"
+              src="https://maps.google.com/maps?q=x%20cykel%20rep&t=&z=15&ie=UTF8&iwloc=&output=embed"
+              frameborder="0"
+              scrolling="no"
+              marginheight="0"
+              marginwidth="0"
+            ></iframe>
+          </div>
+        </div>
+        <div class="mapouter cykelLaptop">
+          <div class="gmap_canvas">
+            <iframe
+              width="700"
+              height="350"
+              id="gmap_canvas"
+              src="https://maps.google.com/maps?q=x%20cykel%20rep&t=&z=15&ie=UTF8&iwloc=&output=embed"
+              frameborder="0"
+              scrolling="no"
+              marginheight="0"
+              marginwidth="0"
+            ></iframe>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="kontaktOgIkon">
-      <img src="../assets/kontakt_hvid.svg" alt="" />
-      <div class="kontaktTekst">
-        <h3>Ring</h3>
-        <p>Hverdage 10-18</p>
-      </div>
-    </div>
-
-    <h1>Find os</h1>
-    <div class="mapouter">
-      <div class="gmap_canvas">
-        <iframe
-          width="300"
-          height="300"
-          id="gmap_canvas"
-          src="https://maps.google.com/maps?q=x%20cykel%20rep&t=&z=15&ie=UTF8&iwloc=&output=embed"
-          frameborder="0"
-          scrolling="no"
-          marginheight="0"
-          marginwidth="0"
-        ></iframe>
-      </div>
-    </div>
-    
   </div>
 </template>
 
 <script>
-import { postRef } from
-"../firebase-db"; export default { name: "Contact", data() { return { kontakt: {
-navn: null, internDato: "", telefonnummer: null, dato: null, tid: null, del: "",
-problem: null }, isOpen: false }; }, methods: { skiftDel(del, billede) {
-console.log(del); this.kontakt.del += del + " "; console.log(this.kontakt); let
-delBillede = "#" + billede; console.log(delBillede); let billedet =
-document.querySelector(delBillede); console.log(billedet);
-billedet.classList.toggle("gem"); }, sendForm() { this.isOpen = true; let
-isValid = document.querySelector("#kontaktForm").checkValidity(); if (isValid) {
-this.problem = document.querySelector("#problemet"); console.log(this.kontakt);
-let dato = this.kontakt.dato; this.kontakt.internDato = dato; let tidspunkt =
-dato.substr(11, 5); console.log(tidspunkt); let nyDato = dato.substr(8, 2) + "-"
-+ dato.substr(5, 2) + "-" + dato.substr(0, 4); this.kontakt.dato = nyDato;
-this.kontakt.tid = tidspunkt; console.log(this.kontakt); }
-postRef.add(this.kontakt); } } };
+import { postRef } from "../firebase-db"; export default { name: "Contact",
+data() { return { kontakt: { navn: null, internDato: "", telefonnummer: null,
+dato: null, tid: null, del: "", problem: null }, isOpen: false }; }, methods: {
+skiftDel(del, billede) { console.log(del); this.kontakt.del += del + " ";
+console.log(this.kontakt); let delBillede = billede; console.log(delBillede);
+let billeder = document.getElementsByClassName(delBillede); for (const billede
+of billeder) { billede.classList.toggle("gem"); } }, sendForm() { this.isOpen =
+true; let isValid = document.querySelector("#kontaktForm").checkValidity(); if
+(isValid) { this.problem = document.querySelector("#problemet");
+console.log(this.kontakt); let dato = this.kontakt.dato; this.kontakt.internDato
+= dato; let tidspunkt = dato.substr(11, 5); console.log(tidspunkt); let nyDato =
+dato.substr(8, 2) + "-" + dato.substr(5, 2) + "-" + dato.substr(0, 4);
+this.kontakt.dato = nyDato; this.kontakt.tid = tidspunkt;
+console.log(this.kontakt); } postRef.add(this.kontakt); } } };
 </script>
 
 <style scoped>
@@ -278,7 +386,8 @@ h1 {
   margin: auto;
 }
 
-input {
+input,
+textarea {
   height: 32px;
   margin-bottom: 16px;
   border-radius: 8px;
@@ -291,7 +400,7 @@ input {
 
 .cykelKnapper {
   position: relative;
-
+  max-width: 400px;
   margin: auto 0;
 }
 
@@ -406,5 +515,69 @@ button {
 
 a {
   color: black;
+}
+
+form div {
+  display: flex;
+  flex-direction: column;
+}
+
+@media screen and (max-width: 750px) {
+  .cykelLaptop {
+    display: none;
+  }
+
+  .baggrundsX {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 750px) {
+  .cykelMobil {
+    display: none;
+  }
+  .kontaktForm {
+    flex-direction: row;
+    justify-content: space-between;
+    max-width: 100%;
+  }
+  .contact {
+    width: 75%;
+  }
+  .cykelLaptop {
+    max-width: 100%;
+    width: 45%;
+  }
+  .cykelKnapper {
+    max-width: 1000px;
+  }
+  .input {
+    width: 40%;
+  }
+  .styr {
+    top: 0%;
+  }
+  .krank {
+    right: 46%;
+  }
+  .forHjul {
+    right: 13%;
+  }
+  .aabning {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 120px;
+  }
+  .baggrundsX {
+    position: absolute;
+    opacity: 0.1;
+    top: 55%;
+    width: 800px;
+    right: 52%;
+    z-index: -10;
+  }
+  .contact {
+    overflow: hidden;
+  }
 }
 </style>
