@@ -178,8 +178,7 @@ video {
   height: 300px;
   width: 100%;
   position: relative;
-  background-color: #f2cb03;
-}
+  }
 
 .facebook {
   width: 90%;
