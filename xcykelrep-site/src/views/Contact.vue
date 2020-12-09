@@ -293,20 +293,55 @@
 </template>
 
 <script>
-import { postRef } from "../firebase-db"; export default { name: "Contact",
-data() { return { kontakt: { navn: null, internDato: "", telefonnummer: null,
-dato: null, tid: null, del: "", problem: null }, isOpen: false }; }, methods: {
-skiftDel(del, billede) { console.log(del); this.kontakt.del += del + " ";
-console.log(this.kontakt); let delBillede = billede; console.log(delBillede);
-let billeder = document.getElementsByClassName(delBillede); for (const billede
-of billeder) { billede.classList.toggle("gem"); } }, sendForm() { this.isOpen =
-true; let isValid = document.querySelector("#kontaktForm").checkValidity(); if
-(isValid) { this.problem = document.querySelector("#problemet");
-console.log(this.kontakt); let dato = this.kontakt.dato; this.kontakt.internDato
-= dato; let tidspunkt = dato.substr(11, 5); console.log(tidspunkt); let nyDato =
-dato.substr(8, 2) + "-" + dato.substr(5, 2) + "-" + dato.substr(0, 4);
-this.kontakt.dato = nyDato; this.kontakt.tid = tidspunkt;
-console.log(this.kontakt); } postRef.add(this.kontakt); } } };
+import { postRef } from "../firebase-db";
+export default {
+  name: "Contact",
+  data() {
+    return {
+      kontakt: {
+        navn: null,
+        internDato: "",
+        telefonnummer: null,
+        dato: null,
+        tid: null,
+        del: "",
+        problem: null
+      },
+      isOpen: false
+    };
+  },
+  methods: {
+    skiftDel(del, billede) {
+      console.log(del);
+      this.kontakt.del += del + " ";
+      console.log(this.kontakt);
+      let delBillede = billede;
+      console.log(delBillede);
+      let billeder = document.getElementsByClassName(delBillede);
+      for (const billede of billeder) {
+        billede.classList.toggle("gem");
+      }
+    },
+    sendForm() {
+      this.isOpen = true;
+      let isValid = document.querySelector("#kontaktForm").checkValidity();
+      if (isValid) {
+        this.problem = document.querySelector("#problemet");
+        console.log(this.kontakt);
+        let dato = this.kontakt.dato;
+        this.kontakt.internDato = dato;
+        let tidspunkt = dato.substr(11, 5);
+        console.log(tidspunkt);
+        let nyDato =
+          dato.substr(8, 2) + "-" + dato.substr(5, 2) + "-" + dato.substr(0, 4);
+        this.kontakt.dato = nyDato;
+        this.kontakt.tid = tidspunkt;
+        console.log(this.kontakt);
+      }
+      postRef.add(this.kontakt);
+    }
+  }
+};
 </script>
 
 <style scoped>

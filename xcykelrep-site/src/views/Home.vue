@@ -12,7 +12,7 @@
         <div class="content2">
           <h2 class="headerFrontpage">Åbningstid i dag</h2>
           <div id="openingHour">
-            <p>{{dayOfWeek()}}</p>
+            <p>{{ dayOfWeek() }}</p>
           </div>
         </div>
         <div class="bookTime">
@@ -37,33 +37,46 @@
         <img src="../assets/down.svg" alt="" />
       </div>
     </div>
-    <div class="reviews"></div>
+    <div class="reviews">
+      <Slider />
+    </div>
     <div class="facebook">
-      <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FXCYKELREP&tabs=timeline&width=280&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=2672707899663290" width="280" height="500" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
-     </div>
+      <iframe
+        src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FXCYKELREP&tabs=timeline&width=280&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=2672707899663290"
+        width="280"
+        height="500"
+        style="border:none;overflow:hidden"
+        scrolling="no"
+        frameborder="0"
+        allowfullscreen="true"
+        allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+      ></iframe>
+    </div>
   </div>
 </template>
 
 <script>
+import Slider from "../components/slider.vue";
+
 export default {
-  
+  components: {
+    Slider
+  },
   methods: {
     dayOfWeek() {
-      var d = new Date(); 
+      var d = new Date();
       var day = d.getDay();
       if (day === 6) {
-        return 'Lukket i dag'
+        return "Lukket i dag";
       } else if (day === 0) {
-        return 'Lukket i dag'
-      } else{
-        return '10 - 18'
-      }}
-  },
+        return "Lukket i dag";
+      } else {
+        return "10 - 18";
+      }
+    }
+  }
 };
 </script>
-
-
-
 
 <style>
 h2,
@@ -169,12 +182,8 @@ video {
 }
 
 .facebook {
-    width: 90%;
-    margin: auto;
-    margin-top: 50px;
+  width: 90%;
+  margin: auto;
+  margin-top: 50px;
 }
-
-
-
-
 </style>
