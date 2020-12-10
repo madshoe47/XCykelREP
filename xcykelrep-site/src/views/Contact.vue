@@ -259,53 +259,53 @@
       </div>
       <div>
         <h1>Find os</h1>
-           <mq-layout mq="mobile">
-        <div class="mapouter kortMobil">
-          <div class="gmap_canvas">
-            <iframe
-              width="300"
-              height="300"
-              id="gmap_canvas"
-              src="https://maps.google.com/maps?q=x%20cykel%20rep&t=&z=15&ie=UTF8&iwloc=&output=embed"
-              frameborder="0"
-              scrolling="no"
-              marginheight="0"
-              marginwidth="0"
-            ></iframe>
+        <mq-layout mq="mobile">
+          <div class="mapouter kortMobil">
+            <div class="gmap_canvas">
+              <iframe
+                width="300"
+                height="300"
+                id="gmap_canvas"
+                src="https://maps.google.com/maps?q=x%20cykel%20rep&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                frameborder="0"
+                scrolling="no"
+                marginheight="0"
+                marginwidth="0"
+              ></iframe>
+            </div>
           </div>
-        </div>
-    </mq-layout>
- <mq-layout mq="bigger+">
-        <div class="mapouter kortLaptop">
-          <div class="gmap_canvas">
-            <iframe
-              width="700"
-              height="350"
-              id="gmap_canvas"
-              src="https://maps.google.com/maps?q=x%20cykel%20rep&t=&z=15&ie=UTF8&iwloc=&output=embed"
-              frameborder="0"
-              scrolling="no"
-              marginheight="0"
-              marginwidth="0"
-            ></iframe>
-          </div>
-        </div>
         </mq-layout>
-         <mq-layout mq="tablet">
-         <div class="mapouter kortMellem">
-          <div class="gmap_canvas">
-            <iframe
-              width="400"
-              height="400"
-              id="gmap_canvas"
-              src="https://maps.google.com/maps?q=x%20cykel%20rep&t=&z=15&ie=UTF8&iwloc=&output=embed"
-              frameborder="0"
-              scrolling="no"
-              marginheight="0"
-              marginwidth="0"
-            ></iframe>
+        <mq-layout mq="bigger+">
+          <div class="mapouter kortLaptop">
+            <div class="gmap_canvas">
+              <iframe
+                width="700"
+                height="350"
+                id="gmap_canvas"
+                src="https://maps.google.com/maps?q=x%20cykel%20rep&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                frameborder="0"
+                scrolling="no"
+                marginheight="0"
+                marginwidth="0"
+              ></iframe>
+            </div>
           </div>
-        </div>
+        </mq-layout>
+        <mq-layout mq="tablet">
+          <div class="mapouter kortMellem">
+            <div class="gmap_canvas">
+              <iframe
+                width="400"
+                height="400"
+                id="gmap_canvas"
+                src="https://maps.google.com/maps?q=x%20cykel%20rep&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                frameborder="0"
+                scrolling="no"
+                marginheight="0"
+                marginwidth="0"
+              ></iframe>
+            </div>
+          </div>
         </mq-layout>
       </div>
     </div>
@@ -325,18 +325,15 @@ export default {
         dato: null,
         tid: null,
         del: "",
-        problem: null
+        problem: null,
       },
-      isOpen: false
+      isOpen: false,
     };
   },
   methods: {
     skiftDel(del, billede) {
-      console.log(del);
       this.kontakt.del += del + " ";
-      console.log(this.kontakt);
       let delBillede = billede;
-      console.log(delBillede);
       let billeder = document.getElementsByClassName(delBillede);
       for (const billede of billeder) {
         billede.classList.toggle("gem");
@@ -346,28 +343,21 @@ export default {
       this.isOpen = true;
       let isValid = document.querySelector("#kontaktForm").checkValidity();
       if (isValid) {
-        this.problem = document.querySelector("#problemet");
-        console.log(this.kontakt);
         let dato = this.kontakt.dato;
         this.kontakt.internDato = dato;
         let tidspunkt = dato.substr(11, 5);
-        console.log(tidspunkt);
         let nyDato =
           dato.substr(8, 2) + "-" + dato.substr(5, 2) + "-" + dato.substr(0, 4);
         this.kontakt.dato = nyDato;
         this.kontakt.tid = tidspunkt;
-        console.log(this.kontakt);
       }
       postRef.add(this.kontakt);
-    }
-  }
+    },
+  },
 };
 </script>
 
 <style scoped>
-
-
-
 .gem {
   display: none;
 }
@@ -440,7 +430,7 @@ h1 {
   display: flex;
   flex-direction: column;
   text-align: left;
-   max-width: 500px; 
+  max-width: 500px;
   margin: auto;
 }
 
@@ -452,7 +442,7 @@ textarea {
   border-radius: 8px;
   font-size: 24px;
   width: 100%;
-  max-width:500px
+  max-width: 500px;
 }
 .gulCykel {
   opacity: 0.3;
@@ -593,10 +583,9 @@ form div {
   }
 }
 
-
-
 @media screen and (min-width: 750px) {
-  .cykelMobil, .kortMobil {
+  .cykelMobil,
+  .kortMobil {
     display: none;
   }
   .kontaktForm {
@@ -644,16 +633,15 @@ form div {
   }
 }
 
-@media screen and(max-width:1300px){
-  .kortLaptop{
-    display:none;
+@media screen and(max-width:1300px) {
+  .kortLaptop {
+    display: none;
   }
 }
 
-@media screen and(min-width:1300px){
-  .kortMellem{
-display:none;
+@media screen and(min-width:1300px) {
+  .kortMellem {
+    display: none;
   }
 }
-
 </style>
