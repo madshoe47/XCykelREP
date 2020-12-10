@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+    <mq-layout mq="mobile">
     <div class="background">
       <div class="videoAndOverlay">
         <div class="video-overlay"></div>
@@ -37,9 +38,64 @@
         <img src="../assets/down.svg" alt="" />
       </div>
     </div>
+    </mq-layout>
+
+ <mq-layout mq="bigger+">
+    <div class="background">
+      <div class="videoAndOverlay">
+        <div class="video-overlay"></div>
+        <video autoplay muted loop id="myVideo">
+          <source src="../assets/video/desktop.mp4" type="video/mp4" />
+        </video>
+      </div>
+
+      <div class="contentDesktop">
+        <div class="content2Desk">
+          <h2 class="headerFrontpage">Åbningstid i dag</h2>
+          <div id="openingHour">
+            <p>{{ dayOfWeek() }}</p>
+          </div>
+       
+        <div class="bookTime">
+          <router-link to="/kontakt"
+            ><button class="bookBtn">Book tid</button></router-link
+          >
+
+          <p>Få fikset din cykel indenfor 24 timer!</p>
+        </div>
+         </div>
+
+        <div class="brushStrokeDesk">
+          <img src="../assets/brushStroke.svg" alt="" />
+          <div class="overBrushStroke">
+            <h3 class="headerBrushStroke">Nemt - Hurtigt - Billigt</h3>
+            <h2 class="headlineBrushStroke">Professionel cykelreparation</h2>
+            <p class="textBrushStroke">
+              Uanset hvad din cykel fejler kan <br />
+              X Cykel REP. hjælpe!
+            </p>
+          </div>
+        </div>
+        <img class="downArrow" src="../assets/down.svg" alt="" />
+      </div>
+    </div>
+    </mq-layout>
+
+
+
+
+     <mq-layout mq="mobile">
     <div class="reviews">
       <Slider />
     </div>
+        </mq-layout>
+
+<mq-layout mq="bigger+">
+    <div class="reviews">
+      <SliderDesk />
+    </div>
+        </mq-layout>
+     <mq-layout mq="mobile">
     <div class="facebook">
       <iframe
         src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FXCYKELREP&tabs=timeline&width=280&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=2672707899663290"
@@ -52,15 +108,37 @@
         allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
       ></iframe>
     </div>
+     </mq-layout>
+
+<mq-layout mq="bigger+">
+<div class="facebookWrapper">
+<img src="../assets/cykelDesk.svg" alt="">
+    <div class="facebookDesk">
+      <iframe
+        src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FXCYKELREP&tabs=timeline&width=280&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=2672707899663290"
+        width="280"
+        height="500"
+        style="border:none;overflow:hidden"
+        scrolling="no"
+        frameborder="0"
+        allowfullscreen="true"
+        allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+      ></iframe>
+    </div>
+    </div>
+     </mq-layout>
+
   </div>
 </template>
 
 <script>
 import Slider from "../components/slider.vue";
+import SliderDesk from "../components/sliderDesk.vue";
 
 export default {
   components: {
-    Slider
+    Slider,
+    SliderDesk
   },
   methods: {
     dayOfWeek() {
@@ -154,12 +232,33 @@ video {
   z-index: 2;
 }
 
+.contentDesktop {
+  position: absolute;
+  top: 5%;
+  left: 10%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  height: 95%;
+    width: 80%;
+  z-index: 2;
+}
+
+.content2Desk {
+  width: 70%;
+}
+.content2Desk p {
+  margin-bottom: 10px;
+}
+
 .home {
   margin-top: 75px;
   margin-bottom: 80px;
 }
 
-.brushStroke {
+.brushStroke, 
+.brushStrokeDesk{
   position: relative;
   display: flex;
   flex-direction: column;
@@ -169,9 +268,20 @@ video {
 .brushStroke img {
   width: 100vw;
 }
+
+.brushStrokeDesk img {
+  width: 90%;
+}
+
 .overBrushStroke {
   position: absolute;
 }
+
+.downArrow {
+  position: absolute;
+  bottom: 5%;
+}
+
 
 .reviews {
   margin-top: 50px;
@@ -180,9 +290,31 @@ video {
   position: relative;
   }
 
+  .facebookWrapper {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    height: 100%;
+  }
+
+  .facebookWrapper img {
+    position: absolute;
+    left: -20%;
+    top: 20%;
+    width: 90%;
+  }
+
 .facebook {
   width: 90%;
   margin: auto;
-  margin-top: 50px;
+  margin-top: 100px;
+}
+
+.facebookDesk {
+  width: 90%;
+  margin: auto;
+  margin-left: 40%;
+  margin-top: 100px;
 }
 </style>

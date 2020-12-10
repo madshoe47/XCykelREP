@@ -4,6 +4,15 @@ import router from "./router";
 import { firestorePlugin } from "vuefire";
 import vuetify from "./plugins/vuetify";
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
+import VueMq from 'vue-mq'
+
+Vue.use(VueMq, {
+  breakpoints: {
+    mobile: 900,
+    bigger: Infinity,
+  },
+  defaultBreakpoint: 'mobile'
+})
 
 Vue.use(firestorePlugin);
 // Install BootstrapVue
