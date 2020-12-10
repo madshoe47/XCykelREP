@@ -344,14 +344,15 @@ export default {
       let isValid = document.querySelector("#kontaktForm").checkValidity();
       if (isValid) {
         let dato = this.kontakt.dato;
-        this.kontakt.internDato = dato;
         let tidspunkt = dato.substr(11, 5);
         let nyDato =
           dato.substr(8, 2) + "-" + dato.substr(5, 2) + "-" + dato.substr(0, 4);
         this.kontakt.dato = nyDato;
         this.kontakt.tid = tidspunkt;
+        this.kontakt.internDato =
+          dato.substr(0, 4) + dato.substr(5, 2) + dato.substr(8, 2);
+        postRef.add(this.kontakt);
       }
-      postRef.add(this.kontakt);
     },
   },
 };
