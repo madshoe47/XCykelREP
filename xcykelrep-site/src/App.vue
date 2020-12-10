@@ -183,7 +183,7 @@ body {
   top: 0;
   right: 0;
    height: 70px;
-  width: 40%;
+  width: 45%;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
