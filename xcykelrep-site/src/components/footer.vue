@@ -1,6 +1,6 @@
 <template>
   <footer>
-    <img class="footer-bike" src="../assets/cykel2.svg" alt="cykel" />
+    <img class="footer-bike" src="../assets/cykel2.svg" alt="cykel ikon" />
     <div class="allText">
     <h3>X Cykel REP.</h3>
     <p>Skovgaardsgade 5</p>

@@ -8,7 +8,7 @@
 
     <div class="tekst-section">
       <div class="pictureOutside">
-        <img src="../assets/x-baggrund-beskaaret.png" alt="X" />
+        <img src="../assets/x-baggrund-beskaaret.png" alt="X ikon" />
       </div>
       <p>
         I over 10 år har Rasmus været en del af Institut for (X), hvor han har

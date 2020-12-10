@@ -40,7 +40,7 @@
     </div>
     </mq-layout>
 
- <mq-layout mq="bigger+">
+ <mq-layout mq="tablet+">
     <div class="background">
       <div class="videoAndOverlay">
         <div class="video-overlay"></div>
@@ -66,7 +66,7 @@
          </div>
 
         <div class="brushStrokeDesk">
-          <img src="../assets/brushStroke.svg" alt="" />
+          <img src="../assets/brushStroke.svg" alt="brush stroke" />
           <div class="overBrushStroke">
             <h3 class="headerBrushStroke">Nemt - Hurtigt - Billigt</h3>
             <h2 class="headlineBrushStroke">Professionel cykelreparation</h2>
@@ -90,10 +90,8 @@
     </div>
         </mq-layout>
 
-<mq-layout mq="bigger+">
-    <div class="reviews">
+<mq-layout mq="tablet+">
       <SliderDesk />
-    </div>
         </mq-layout>
      <mq-layout mq="mobile">
     <div class="facebook">
@@ -110,7 +108,7 @@
     </div>
      </mq-layout>
 
-<mq-layout mq="bigger+">
+<mq-layout mq="tablet+">
 <div class="facebookWrapper">
 <img src="../assets/cykelDesk.svg" alt="">
     <div class="facebookDesk">
@@ -177,6 +175,7 @@ p {
 .background {
   position: relative;
   width: 100%;
+  margin-bottom: 50px;
 }
 
 video {

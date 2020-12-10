@@ -9,7 +9,13 @@
         weekender og bestilling af dele, hvor der opstår leveringstid.
       </p>
 
-      <h2 class="headerPrices">Priser*</h2>
+     
+      <div class="table">
+ <mq-layout mq="tablet+">
+   <img class="repDesk" src="../assets/repDesk.svg" alt="">
+ </mq-layout>
+<div class="tabletable">
+   <h2 class="headerPrices">Priser*</h2>
       <table>
         <tr>
           <td>Lapning af cykel</td>
@@ -104,8 +110,12 @@
           <td>Kr. 750</td>
         </tr>
       </table>
+        <p class="italic">*Priserne er angivet fra</p>
+      </div>
+   
 
-      <p class="italic">*Priserne er angivet fra</p>
+    
+         </div>
     </div>
   </div>
 </template>
@@ -140,10 +150,35 @@ td {
   font-family: helvetica;
 }
 
+
+.table {
+  width: 90%;
+  height: 1150px;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: flex-start;
+  margin-top: 50px;
+}
+
+.tabletable {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: auto;
+}
+
+.repDesk {
+  width: 80%;
+}
+
 table {
-  width: 100%;
+  width: 300px;
+  margin: auto;
   border-spacing: 0;
   border-collapse: collapse;
+  margin-bottom: 0;
 }
 table td {
   border: 1px solid white;
@@ -151,6 +186,9 @@ table td {
 }
 
 .italic {
+
   font-style: italic;
+  color: #ffffff;
+  margin-top: 10px;
 }
 </style>

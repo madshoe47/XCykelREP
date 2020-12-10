@@ -31,13 +31,13 @@
                 id="gulCykel"
                 class="gulCykel"
                 src="../assets/gul_cykel.svg"
-                alt=""
+                alt="gul cykel"
               />
               <img
                 id="styrBillede"
                 class="styrBillede gem"
                 src="../assets/styr.svg"
-                alt=""
+                alt="cykelstyr"
               />
               <img
                 id="forHjulBillede"
@@ -49,25 +49,25 @@
                 id="bagHjulBillede"
                 class="bagHjulBillede gem"
                 src="../assets/hjul.svg"
-                alt=""
+                alt="cykelhjul"
               />
               <img
                 id="forBillede"
                 class="forBillede gem"
                 src="../assets/for.svg"
-                alt=""
+                alt="cykeldel"
               />
               <img
                 id="bagBillede"
                 class="bagBillede gem"
                 src="../assets/bag.svg"
-                alt=""
+                alt="cykel del"
               />
               <img
                 id="krankBillede"
                 class="krankBillede gem"
                 src="../assets/krank.svg"
-                alt=""
+                alt="cyek krank"
               />
               <button
                 v-on:click="skiftDel('Baghjul', 'bagBillede')"
@@ -133,43 +133,43 @@
               id="gulCykel"
               class="gulCykel"
               src="../assets/gul_cykel.svg"
-              alt=""
+              alt="gul cykel"
             />
             <img
               id="styrBillede"
               class="styrBillede gem"
               src="../assets/styr.svg"
-              alt=""
+              alt="cykelstyr"
             />
             <img
               id="forHjulBillede"
               class="forHjulBillede gem"
               src="../assets/hjul.svg"
-              alt=""
+              alt="cykelhjul"
             />
             <img
               id="bagHjulBillede"
               class="bagHjulBillede gem"
               src="../assets/hjul.svg"
-              alt=""
+              alt="cykeldel"
             />
             <img
               id="forBillede"
               class="forBillede gem"
               src="../assets/for.svg"
-              alt=""
+              alt="cykeldel"
             />
             <img
               id="bagBillede"
               class="bagBillede gem"
               src="../assets/bag.svg"
-              alt=""
+              alt="cykeldel"
             />
             <img
               id="krankBillede"
               class="krankBillede gem"
               src="../assets/krank.svg"
-              alt=""
+              alt="cykeldel"
             />
             <button
               v-on:click="skiftDel('Baghjul', 'bagBillede')"
@@ -243,14 +243,14 @@
         </div>
 
         <div class="kontaktOgIkon">
-          <img src="../assets/sms.svg" alt="" />
+          <img src="../assets/sms.svg" alt="sms ikon" />
           <div class="kontaktTekst">
             <h3>SMS</h3>
             <p>Alle dage hele døgnet</p>
           </div>
         </div>
         <div class="kontaktOgIkon">
-          <img src="../assets/kontakt_hvid.svg" alt="" />
+          <img src="../assets/kontakt_hvid.svg" alt="telefon ikon" />
           <div class="kontaktTekst">
             <h3>Ring</h3>
             <p>Hverdage 10-18</p>
@@ -259,7 +259,8 @@
       </div>
       <div>
         <h1>Find os</h1>
-        <div class="mapouter cykelMobil">
+           <mq-layout mq="mobile">
+        <div class="mapouter kortMobil">
           <div class="gmap_canvas">
             <iframe
               width="300"
@@ -273,7 +274,9 @@
             ></iframe>
           </div>
         </div>
-        <div class="mapouter cykelLaptop">
+    </mq-layout>
+ <mq-layout mq="bigger+">
+        <div class="mapouter kortLaptop">
           <div class="gmap_canvas">
             <iframe
               width="700"
@@ -287,6 +290,23 @@
             ></iframe>
           </div>
         </div>
+        </mq-layout>
+         <mq-layout mq="tablet">
+         <div class="mapouter kortMellem">
+          <div class="gmap_canvas">
+            <iframe
+              width="400"
+              height="400"
+              id="gmap_canvas"
+              src="https://maps.google.com/maps?q=x%20cykel%20rep&t=&z=15&ie=UTF8&iwloc=&output=embed"
+              frameborder="0"
+              scrolling="no"
+              marginheight="0"
+              marginwidth="0"
+            ></iframe>
+          </div>
+        </div>
+        </mq-layout>
       </div>
     </div>
   </div>
@@ -345,6 +365,9 @@ export default {
 </script>
 
 <style scoped>
+
+
+
 .gem {
   display: none;
 }
@@ -411,22 +434,25 @@ h1 {
 }
 .contact {
   width: 90%;
-  margin: 80px auto 110px auto;
+  margin: 120px auto 40px auto;
 }
 .kontaktForm {
   display: flex;
   flex-direction: column;
   text-align: left;
-  max-width: 500px;
+   max-width: 500px; 
   margin: auto;
 }
 
 input,
 textarea {
+  background-color: #fff;
   height: 32px;
   margin-bottom: 16px;
   border-radius: 8px;
   font-size: 24px;
+  width: 100%;
+  max-width:500px
 }
 .gulCykel {
   opacity: 0.3;
@@ -558,7 +584,7 @@ form div {
 }
 
 @media screen and (max-width: 750px) {
-  .cykelLaptop {
+  .kortMellem {
     display: none;
   }
 
@@ -567,8 +593,10 @@ form div {
   }
 }
 
+
+
 @media screen and (min-width: 750px) {
-  .cykelMobil {
+  .cykelMobil, .kortMobil {
     display: none;
   }
   .kontaktForm {
@@ -609,10 +637,23 @@ form div {
     top: 55%;
     width: 800px;
     right: 52%;
-    z-index: -10;
+    z-index: 10;
   }
   .contact {
     overflow: hidden;
   }
 }
+
+@media screen and(max-width:1300px){
+  .kortLaptop{
+    display:none;
+  }
+}
+
+@media screen and(min-width:1300px){
+  .kortMellem{
+display:none;
+  }
+}
+
 </style>

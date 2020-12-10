@@ -12,7 +12,7 @@
     </div>
     </mq-layout>
 
-    <mq-layout mq="bigger+">
+    <mq-layout mq="tablet+">
       <div class="headerDesktop">
       <img src="./assets/logoDesktop.svg" alt="" />
       <div id="navDesktop">
@@ -70,7 +70,7 @@
     <ThisFoot></ThisFoot>
     </div>
  </mq-layout>
-    <mq-layout mq="bigger+">
+    <mq-layout mq="tablet+">
  <div class="footerContainerSd">
     <ThisFootDesk></ThisFootDesk>
     </div>
@@ -100,14 +100,15 @@ export default {
   background-color: #3A393E
 }
 body {
-    background-color: #3a393e;
+    background-color: #3a393e !important;
     width: 100%;
     margin: 0;
 }
 
-h1 {
+ h1 {
   font-family: Tahoma, Geneva, Verdana, sans-serif;
   color: #f2cb03;
+  
 }
 
 .header {
@@ -142,7 +143,7 @@ h1 {
   top: 0;
   left: 0;
   background-color: #ffffff;
-  height: 80px;
+  height: 70px;
   width: 100%;
   padding: 0px 20px;
   display: flex;
@@ -181,8 +182,8 @@ h1 {
   position: fixed;
   top: 0;
   right: 0;
-   height: 80px;
-  width: 50%;
+   height: 70px;
+  width: 40%;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -216,7 +217,7 @@ h1 {
   text-align: center;
   font-weight: bold;
   color: #2c3e50;
-  height: 80px;
+  height: 70px;
   padding: 10px 15px 10px 15px;
   text-decoration: none;
   z-index: 92;
