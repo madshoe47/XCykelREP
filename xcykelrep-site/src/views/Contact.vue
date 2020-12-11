@@ -227,6 +227,9 @@
                   Hvis du har ydeligere spørgsmål, kan jeg kontaktes på:
                   <br /><a href="tel:26430792">26430792</a>
                 </p>
+                <router-link class="forsideKnapLink" to="/">
+                  <button class="forsideKnap">Tilbage til forsiden!</button>
+                </router-link>
               </div>
             </div>
           </div>
@@ -528,6 +531,26 @@ textarea {
   transition: all 0.2s ease-in;
   font-family: Helvetica, Arial, sans-serif;
   color: black;
+  display: flex;
+  flex-direction: column;
+}
+
+.forsideKnap {
+  padding: 8px;
+  margin-top: 10px;
+  background-color: #f2cb03;
+  color: black;
+  font-size: 18px;
+  width: 190px;
+  margin: auto;
+  border: none;
+  border-radius: 20px;
+  text-align: center;
+}
+
+.forsideKnapLink {
+  width: 190px;
+  margin: auto;
 }
 
 .fadeIn-enter {
