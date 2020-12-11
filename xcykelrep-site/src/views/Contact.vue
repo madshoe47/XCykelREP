@@ -1,4 +1,5 @@
 <template>
+  <!--Jonathan har lavet hele den her side-->
   <div class="contact">
     <img class="baggrundsX" src="../assets/x.svg" alt="" />
     <div>
@@ -20,7 +21,7 @@
             v-model="kontakt.dato"
             name="dateTime"
             type="datetime-local"
-            min="2021-01-01T10:00"
+            min="2020-01-01T10:00"
             max="2021-12-30T00:00"
             required
           />
@@ -236,6 +237,7 @@
         </transition>
       </div>
     </div>
+    <img src="../aasets/down.svg" alt="" />
     <div class="aabning">
       <div>
         <h1>Åbningstider</h1>
@@ -316,6 +318,7 @@
 </template>
 
 <script>
+//Jonathan har også lavet alt JavaScript på Contact.vue
 import { postRef } from "../firebase-db";
 export default {
   name: "Contact",
