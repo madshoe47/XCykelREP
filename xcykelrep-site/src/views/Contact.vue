@@ -211,10 +211,10 @@
         </div>
       </form>
       <div>
-        <transition name="modal">
+        <transition name="modalWindow">
           <div v-if="isOpen">
             <div class="overlay" @click.self="isOpen = false">
-              <div class="modalWindow">
+              <div id="modalWindow">
                 <h1>Tak for din reservation!</h1>
                 <p>
                   Du har bestilt tid
@@ -316,19 +316,49 @@
 </template>
 
 <script>
-import { postRef } from "../firebase-db"; export default { name: "Contact",
-data() { return { kontakt: { navn: null, internDato: "", telefonnummer: null,
-dato: null, tid: null, del: "", problem: null }, isOpen: false }; }, methods: {
-skiftDel(del, billede) { this.kontakt.del += del + " "; let delBillede =
-billede; let billeder = document.getElementsByClassName(delBillede); for (const
-billede of billeder) { billede.classList.toggle("gem"); } }, sendForm() {
-this.isOpen = true; let isValid =
-document.querySelector("#kontaktForm").checkValidity(); if (isValid) { let dato
-= this.kontakt.dato; let tidspunkt = dato.substr(11, 5); let nyDato =
-dato.substr(8, 2) + "-" + dato.substr(5, 2) + "-" + dato.substr(0, 4);
-this.kontakt.dato = nyDato; this.kontakt.tid = tidspunkt;
-this.kontakt.internDato = dato.substr(0, 4) + dato.substr(5, 2) + dato.substr(8,
-2); postRef.add(this.kontakt); } } } };
+import { postRef } from "../firebase-db";
+export default {
+  name: "Contact",
+  data() {
+    return {
+      kontakt: {
+        navn: null,
+        internDato: "",
+        telefonnummer: null,
+        dato: null,
+        tid: null,
+        del: "",
+        problem: null,
+      },
+      isOpen: false,
+    };
+  },
+  methods: {
+    skiftDel(del, billede) {
+      this.kontakt.del += del + " ";
+      let delBillede = billede;
+      let billeder = document.getElementsByClassName(delBillede);
+      for (const billede of billeder) {
+        billede.classList.toggle("gem");
+      }
+    },
+    sendForm() {
+      let isValid = document.querySelector("#kontaktForm").checkValidity();
+      if (isValid) {
+        this.isOpen = true;
+        let dato = this.kontakt.dato;
+        let tidspunkt = dato.substr(11, 5);
+        let nyDato =
+          dato.substr(8, 2) + "-" + dato.substr(5, 2) + "-" + dato.substr(0, 4);
+        this.kontakt.dato = nyDato;
+        this.kontakt.tid = tidspunkt;
+        this.kontakt.internDato =
+          dato.substr(0, 4) + dato.substr(5, 2) + dato.substr(8, 2);
+        postRef.add(this.kontakt);
+      }
+    },
+  },
+};
 </script>
 
 <style scoped>
@@ -544,6 +574,21 @@ button {
   transition: opacity 0.2s ease;
 }
 
+.overlay #modalWindow {
+  width: 500px;
+  height: 320px;
+  margin: 0px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 2px;
+  box-shadow: 0 2px 8px 3px;
+  transition: all 0.2s ease-in;
+  font-family: Helvetica, Arial, sans-serif;
+  color: black;
+  display: flex;
+  flex-direction: column;
+}
+
 a {
   color: black;
 }
@@ -611,25 +656,10 @@ form div {
     top: 55%;
     width: 800px;
     right: 52%;
-    z-index: 10;
+    z-index: 1;
   }
   .contact {
     overflow: hidden;
-  }
-}
-@media screen and(max-width:750px) {
-  .modalWindow {
-    width: 500px;
-    margin: 0px auto;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 2px;
-    box-shadow: 0 2px 8px 3px;
-    transition: all 0.2s ease-in;
-    font-family: Helvetica, Arial, sans-serif;
-    color: black;
-    display: flex;
-    flex-direction: column;
   }
 }
 
@@ -643,7 +673,7 @@ form div {
   .kortMellem {
     display: none;
   }
-  .modalWindow {
+  .overlay #modalWindow {
     position: fixed;
     top: 30%;
     left: 40%;
