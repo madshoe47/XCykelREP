@@ -633,6 +633,7 @@ form div {
   }
   .input {
     width: 40%;
+    max-width: 495px;
   }
   .styr {
     top: 0%;
