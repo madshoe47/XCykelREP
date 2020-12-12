@@ -1,3 +1,5 @@
+// Mads har brugt alle plugins og sat dem op, udover FireBase som er Jonathan
+
 import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";

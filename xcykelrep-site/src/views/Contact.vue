@@ -237,7 +237,11 @@
         </transition>
       </div>
     </div>
-    <img src="../aasets/down.svg" alt="" />
+   
+   <mq-layout mq="mobile">
+    <img class="downarrow" src="../assets/down.svg" alt="" />
+   </mq-layout>
+
     <div class="aabning">
       <div>
         <h1>Åbningstider</h1>
@@ -318,53 +322,28 @@
 </template>
 
 <script>
-//Jonathan har også lavet alt JavaScript på Contact.vue
-import { postRef } from "../firebase-db";
-export default {
-  name: "Contact",
-  data() {
-    return {
-      kontakt: {
-        navn: null,
-        internDato: "",
-        telefonnummer: null,
-        dato: null,
-        tid: null,
-        del: "",
-        problem: null,
-      },
-      isOpen: false,
-    };
-  },
-  methods: {
-    skiftDel(del, billede) {
-      this.kontakt.del += del + " ";
-      let delBillede = billede;
-      let billeder = document.getElementsByClassName(delBillede);
-      for (const billede of billeder) {
-        billede.classList.toggle("gem");
-      }
-    },
-    sendForm() {
-      let isValid = document.querySelector("#kontaktForm").checkValidity();
-      if (isValid) {
-        this.isOpen = true;
-        let dato = this.kontakt.dato;
-        let tidspunkt = dato.substr(11, 5);
-        let nyDato =
-          dato.substr(8, 2) + "-" + dato.substr(5, 2) + "-" + dato.substr(0, 4);
-        this.kontakt.dato = nyDato;
-        this.kontakt.tid = tidspunkt;
-        this.kontakt.internDato =
-          dato.substr(0, 4) + dato.substr(5, 2) + dato.substr(8, 2);
-        postRef.add(this.kontakt);
-      }
-    },
-  },
-};
+/*Jonathan har også lavet alt JavaScript på Contact.vue */ import { postRef }
+from "../firebase-db"; export default { name: "Contact", data() { return {
+kontakt: { navn: null, internDato: "", telefonnummer: null, dato: null, tid:
+null, del: "", problem: null }, isOpen: false }; }, methods: { skiftDel(del,
+billede) { this.kontakt.del += del + " "; let delBillede = billede; let billeder
+= document.getElementsByClassName(delBillede); for (const billede of billeder) {
+billede.classList.toggle("gem"); } }, sendForm() { let isValid =
+document.querySelector("#kontaktForm").checkValidity(); if (isValid) {
+this.isOpen = true; let dato = this.kontakt.dato; let tidspunkt =
+dato.substr(11, 5); let nyDato = dato.substr(8, 2) + "-" + dato.substr(5, 2) +
+"-" + dato.substr(0, 4); this.kontakt.dato = nyDato; this.kontakt.tid =
+tidspunkt; this.kontakt.internDato = dato.substr(0, 4) + dato.substr(5, 2) +
+dato.substr(8, 2); postRef.add(this.kontakt); } } } };
 </script>
 
 <style scoped>
+
+.downarrow {
+   position: absolute;
+  bottom: 12%;
+      left: 43%;
+}
 .gem {
   display: none;
 }

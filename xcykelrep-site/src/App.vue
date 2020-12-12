@@ -1,92 +1,88 @@
 <template>
+  <!-- Mads har lavet alt på denne side -->
   <div id="app">
     <mq-layout mq="mobile">
-    <div class="header">
-      <img src="./assets/logo.svg" alt="" />
-      <div class="callus">
-        <p>
-          Ring eller skriv <br />Tlf:
-          <a class="underline" href="tel:26 43 07 92">26 43 07 92</a>
-        </p>
+      <div class="header">
+        <img src="./assets/logo.svg" alt="" />
+        <div class="callus">
+          <p>
+            Ring eller skriv <br />Tlf:
+            <a class="underline" href="tel:26 43 07 92">26 43 07 92</a>
+          </p>
+        </div>
       </div>
-    </div>
     </mq-layout>
 
     <mq-layout mq="tablet+">
       <div class="headerDesktop">
-      <img src="./assets/logoDesktop.svg" alt="" />
-      <div id="navDesktop">
-      <div class="navElement">
-        <router-link to="/"
-          ><img src="./assets/forside.svg" alt="" />Forside</router-link
-        >
+        <img src="./assets/logoDesktop.svg" alt="" />
+        <div id="navDesktop">
+          <div class="navElement">
+            <router-link to="/"
+              ><img src="./assets/forside.svg" alt="" />Forside</router-link
+            >
+          </div>
+          <div class="navElement">
+            <router-link to="/priser"
+              ><img src="./assets/priser.svg" alt="" />Priser</router-link
+            >
+          </div>
+          <div class="navElement">
+            <router-link to="/omxcykelrep"
+              ><img src="./assets/omos.svg" alt="" />Om os</router-link
+            >
+          </div>
+          <div class="navElement">
+            <router-link to="/kontakt"
+              ><img src="./assets/kontakt.svg" alt="" />Kontakt</router-link
+            >
+          </div>
+        </div>
       </div>
-      <div class="navElement">
-        <router-link to="/priser"
-          ><img src="./assets/priser.svg" alt="" />Priser</router-link
-        >
+    </mq-layout>
+    <mq-layout mq="mobile">
+      <div id="nav">
+        <div class="navElement">
+          <router-link to="/"
+            ><img src="./assets/forside.svg" alt="" />Forside</router-link
+          >
+        </div>
+        <div class="navElement">
+          <router-link to="/priser"
+            ><img src="./assets/priser.svg" alt="" />Priser</router-link
+          >
+        </div>
+        <div class="navElement">
+          <router-link to="/omxcykelrep"
+            ><img src="./assets/omos.svg" alt="" />Om os</router-link
+          >
+        </div>
+        <div class="navElement">
+          <router-link to="/kontakt"
+            ><img src="./assets/kontakt.svg" alt="" />Kontakt</router-link
+          >
+        </div>
       </div>
-      <div class="navElement">
-        <router-link to="/omxcykelrep"
-          ><img src="./assets/omos.svg" alt="" />Om os</router-link
-        >
-      </div>
-      <div class="navElement">
-        <router-link to="/kontakt"
-          ><img src="./assets/kontakt.svg" alt="" />Kontakt</router-link
-        >
-      </div>
-    </div>
-    </div>
- </mq-layout>
-<mq-layout mq="mobile">
-    <div id="nav">
-      <div class="navElement">
-        <router-link to="/"
-          ><img src="./assets/forside.svg" alt="" />Forside</router-link
-        >
-      </div>
-      <div class="navElement">
-        <router-link to="/priser"
-          ><img src="./assets/priser.svg" alt="" />Priser</router-link
-        >
-      </div>
-      <div class="navElement">
-        <router-link to="/omxcykelrep"
-          ><img src="./assets/omos.svg" alt="" />Om os</router-link
-        >
-      </div>
-      <div class="navElement">
-        <router-link to="/kontakt"
-          ><img src="./assets/kontakt.svg" alt="" />Kontakt</router-link
-        >
-      </div>
-    </div>
     </mq-layout>
     <router-view />
 
     <mq-layout mq="mobile">
-     <div class="footerContainer">
-    <ThisFoot></ThisFoot>
-    </div>
- </mq-layout>
+      <div class="footerContainer">
+        <ThisFoot></ThisFoot>
+      </div>
+    </mq-layout>
     <mq-layout mq="tablet+">
- <div class="footerContainerSd">
-    <ThisFootDesk></ThisFootDesk>
-    </div>
-       </mq-layout>
+      <div class="footerContainerSd">
+        <ThisFootDesk></ThisFootDesk>
+      </div>
+    </mq-layout>
   </div>
 </template>
 
 <script>
-import ThisFoot from './components/footer'
-import ThisFootDesk from './components/footerDesk'
-export default {
-  components: {
-    ThisFoot,
-    ThisFootDesk
-  }, 
-};
+import ThisFoot from "./components/footer"; import ThisFootDesk from
+"./components/footerDesk"; export default { components: { ThisFoot, ThisFootDesk
+} };
 </script>
 
 <style>
@@ -97,25 +93,24 @@ export default {
   text-align: center;
   color: #ffffff;
   z-index: 99;
-  background-color: #3A393E
+  background-color: #3a393e;
 }
 body {
-    background-color: #3a393e !important;
-    width: 100%;
-    margin: 0;
+  background-color: #3a393e !important;
+  width: 100%;
+  margin: 0;
 }
 
- h1 {
+h1 {
   font-family: Tahoma, Geneva, Verdana, sans-serif;
   color: #f2cb03;
-  
 }
 
 .header {
   position: fixed;
   top: 0;
   left: 0;
-  background-color: #3A393E;
+  background-color: #3a393e;
   height: 80px;
   width: 100%;
   padding: 0px 20px;
@@ -131,8 +126,7 @@ body {
   margin-bottom: 0;
 }
 
-.header img
- {
+.header img {
   height: 80%;
   margin-left: 2%;
   margin-top: 1%;
@@ -153,12 +147,12 @@ body {
   z-index: 92;
 }
 
-.headerDesktop img{
+.headerDesktop img {
   height: 80%;
   margin-left: 2%;
   margin-top: 1%;
   z-index: 92;
-  }
+}
 
 .underline {
   color: #fff;
@@ -182,14 +176,13 @@ body {
   position: fixed;
   top: 0;
   right: 0;
-   height: 70px;
+  height: 70px;
   width: 45%;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   background-color: #fff;
   z-index: 92;
-
 }
 
 #nav a {

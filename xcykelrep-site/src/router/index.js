@@ -1,3 +1,5 @@
+// Mads har lavet alt på denne side
+
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";

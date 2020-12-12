@@ -1,4 +1,5 @@
 <template>
+  <!-- Anne har stylet siden i "normalt" kodning og Mads har derefter tilpasset det til Vue og gjort det responsivt -->
   <div class="about">
     <div class="wrapperAbout">
       <section class="img-section">

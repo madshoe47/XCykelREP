@@ -9,11 +9,5 @@
 </template>
 
 <script>
-export default {
-  data: function() {
-    return {
-      isOpen: false
-    };
-  }
-};
+export default { data: function() { return { isOpen: false }; } };
 </script>

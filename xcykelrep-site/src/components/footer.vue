@@ -1,44 +1,45 @@
 <template>
+  <!-- Sandra har stylet siden i "normalt" kodning og Mads har derefter tilpasset det til Vue -->
   <footer>
     <img class="footer-bike" src="../assets/cykel2.svg" alt="cykel ikon" />
     <div class="allText">
-    <h3>X Cykel REP.</h3>
-    <p>Skovgaardsgade 5</p>
-    <p>8000 Aarhus C</p>
-    <a href="https://g.page/XCYKELREP?share">Find vej</a>
+      <h3>X Cykel REP.</h3>
+      <p>Skovgaardsgade 5</p>
+      <p>8000 Aarhus C</p>
+      <a href="https://g.page/XCYKELREP?share">Find vej</a>
 
-    <br />
-    <br />
+      <br />
+      <br />
 
-    <p>
-      Tlf:
-      <a class="underline2" href="tel: 26 43 07 92">26 43 07 92</a>
-    </p>
-    <br />
-    <p>CVR-nummer</p>
-    <p>39674408</p>
-    <br />
+      <p>
+        Tlf:
+        <a class="underline2" href="tel: 26 43 07 92">26 43 07 92</a>
+      </p>
+      <br />
+      <p>CVR-nummer</p>
+      <p>39674408</p>
+      <br />
 
-    <h3>Åbningstider</h3>
-    <p>Man-fre: 10-18</p>
-    <p>Lør-søn: Lukket</p>
+      <h3>Åbningstider</h3>
+      <p>Man-fre: 10-18</p>
+      <p>Lør-søn: Lukket</p>
 
-    <br />
-    <h3>Følg os</h3>
-    <img
-      class="footer-icons"
-      src="../assets/facebook.svg"
-      alt="facebook logo"
-    />
-
-    <p>
-      Hos os kan du betale med
+      <br />
+      <h3>Følg os</h3>
       <img
         class="footer-icons"
-        src="../assets/mobilepay.svg"
-        alt="mobilepay logo"
+        src="../assets/facebook.svg"
+        alt="facebook logo"
       />
-    </p>
+
+      <p>
+        Hos os kan du betale med
+        <img
+          class="footer-icons"
+          src="../assets/mobilepay.svg"
+          alt="mobilepay logo"
+        />
+      </p>
     </div>
   </footer>
 </template>
@@ -68,7 +69,6 @@ footer {
 .underline2 {
   text-decoration: underline;
   color: black;
-
 }
 
 .footer-icons {
