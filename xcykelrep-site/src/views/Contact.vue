@@ -237,10 +237,6 @@
         </transition>
       </div>
     </div>
-   
-   <mq-layout mq="mobile">
-    <img class="downarrow" src="../assets/down.svg" alt="" />
-   </mq-layout>
 
     <div class="aabning">
       <div>
@@ -338,11 +334,10 @@ dato.substr(8, 2); postRef.add(this.kontakt); } } } };
 </script>
 
 <style scoped>
-
 .downarrow {
-   position: absolute;
+  position: absolute;
   bottom: 12%;
-      left: 43%;
+  left: 43%;
 }
 .gem {
   display: none;
@@ -433,6 +428,7 @@ textarea {
 .gulCykel {
   opacity: 0.3;
   margin-top: 8px;
+  height: 190px;
 }
 
 .cykelKnapper {
@@ -592,6 +588,19 @@ form div {
   .baggrundsX {
     display: none;
   }
+  .cykelKnapper {
+    max-height: 400px;
+    position: relative;
+  }
+
+  .cykelMobil {
+    position: relative;
+    display: flex;
+    max-width: 80%;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
 @media screen and (min-width: 750px) {
@@ -609,7 +618,6 @@ form div {
   }
   .cykelLaptop {
     max-width: 100%;
-    width: 45%;
   }
   .cykelKnapper {
     max-width: 1000px;

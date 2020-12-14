@@ -3,7 +3,9 @@
   <div id="app">
     <mq-layout mq="mobile">
       <div class="header">
-        <img src="./assets/logo.svg" alt="" />
+        <router-link to="/">
+          <img src="./assets/logo.svg" alt="" />
+        </router-link>
         <div class="callus">
           <p>
             Ring eller skriv <br />Tlf:
@@ -15,7 +17,9 @@
 
     <mq-layout mq="tablet+">
       <div class="headerDesktop">
-        <img src="./assets/logoDesktop.svg" alt="" />
+        <router-link to="/">
+          <img src="./assets/logoDesktop.svg" alt="" />
+        </router-link>
         <div id="navDesktop">
           <div class="navElement">
             <router-link to="/"
