@@ -493,6 +493,9 @@ textarea {
   height: 30px;
   width: 77px;
   color: black;
+     z-index: 80;
+    padding: 2px;
+    margin-bottom: 30px;
 }
 
 * {
@@ -643,7 +646,7 @@ form div {
   .baggrundsX {
     position: absolute;
     opacity: 0.1;
-    top: 55%;
+    top: 70%;
     width: 800px;
     right: 52%;
     z-index: 1;
